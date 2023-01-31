@@ -4,6 +4,7 @@ import pokemons from './pokemons.json'
 import { useState } from 'react'
 import { Pokemon } from './pokemonInterface'
 
+// PokemonRow component to display rows in our pokemon table
 const PokemonRow:React.FunctionComponent<{pokemon: Pokemon}> = ({pokemon}) => (
   <tr>
       <td>{pokemon.name.english}</td>
@@ -12,8 +13,9 @@ const PokemonRow:React.FunctionComponent<{pokemon: Pokemon}> = ({pokemon}) => (
 )
 
 function App() {
-  const [filter, setFilter] = useState()
-
+  // store the search string to filter the pokemon list
+  const [filter, setFilter] = useState('')
+  
   return (
     <div
       style={{
@@ -22,7 +24,7 @@ function App() {
       }}
     >
       <h1 className="title">Pokemons</h1>
-      <input type="text"></input>
+      <input type="text" value={filter} onChange={(event) => setFilter(event.target.value) }></input>
       <table>
         <thead>
           <tr>
@@ -31,7 +33,15 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {pokemons.slice(0, 15).map(pokemon =>
+          {pokemons
+          // only take the first 15 pokemons from the list
+          .slice(0, 15)
+          // let the user search the list
+          // using toLowerCase() to make the search case insensitive (includes is case sensitive)
+          .filter(pokemon => pokemon.name.english.toLowerCase().includes(filter.toLowerCase())) 
+          // use map to display all the pokemons
+          .map(pokemon =>
+            // use PokemonRow component to display the current pokemon
             <PokemonRow key={pokemon.id} pokemon={pokemon}/> 
           )}
         </tbody>
