@@ -1,26 +1,8 @@
 import React from 'react'
 import './App.css'
 import pokemons from './pokemons.json'
-
-interface Pokemon {
-  id: number,
-  name: {
-    english: string,
-    japanese: string,
-    chinese: string,
-    french: string,
-  },
-  type: string[],
-  base: {
-    HP: number,
-    Attack: number,
-    Defense: number,
-    "Sp. Attack": number,
-    "Sp. Defense": number,
-    Speed: number,
-  }
-
-}
+import { useState } from 'react'
+import { Pokemon } from './pokemonInterface'
 
 const PokemonRow:React.FunctionComponent<{pokemon: Pokemon}> = ({pokemon}) => (
   <tr>
@@ -30,7 +12,8 @@ const PokemonRow:React.FunctionComponent<{pokemon: Pokemon}> = ({pokemon}) => (
 )
 
 function App() {
-  // console.log(pokemon.slice(0,3))
+  const [filter, setFilter] = useState()
+
   return (
     <div
       style={{
@@ -39,6 +22,7 @@ function App() {
       }}
     >
       <h1 className="title">Pokemons</h1>
+      <input type="text"></input>
       <table>
         <thead>
           <tr>
