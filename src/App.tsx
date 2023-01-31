@@ -1,7 +1,8 @@
 import './App.css'
+import pokemons from './pokemons.json'
 
 function App() {
-
+  // console.log(pokemon.slice(0,3))
   return (
     <div
       style={{
@@ -18,14 +19,12 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Poki</td>
-            <td>this, that</td>
-          </tr>
-          <tr>
-            <td>Poki 2</td>
-            <td>this2, that2</td>
-          </tr>
+          {pokemons.slice(0, 15).map(pokemon => 
+            <tr key={pokemon.id}>
+              <td>{pokemon.name.english}</td>
+              <td>{pokemon.type.join(', ')}</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
