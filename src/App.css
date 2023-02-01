@@ -2,10 +2,23 @@
   text-align: center;
 }
 
+table {
+  width: 100%;
+}
+
+tr {
+  display: grid;
+  grid-template-columns: 40% 40% 20%;
+}
+
 th {
   text-align: left;
 }
 
 td {
   padding-right: 2rem;
+}
+
+input {
+  width: 100%;
 }
