@@ -1,10 +1,11 @@
 import React from 'react'
 // style imported from separate css file
 import './App.css'
-import pokemons from './pokemons.json'
 import { useState } from 'react'
+
+import pokemons from './pokemons.json'
 import Pokemon from './pokemonInterface'
-// import PokemonRow from './components/PokemonRow'
+
 import PokemonInfo from './components/PokemonInfo'
 import PokemonFilter from './components/PokemonFilter'
 import PokemonList from './components/PokemonList'
