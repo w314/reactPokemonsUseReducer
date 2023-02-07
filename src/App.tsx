@@ -3,7 +3,6 @@ import React from 'react'
 import './App.css'
 import { useState } from 'react'
 
-import pokemons from './pokemons.json'
 import Pokemon from './pokemonInterface'
 
 import PokemonInfo from './components/PokemonInfo'
@@ -43,11 +42,7 @@ function App() {
       >
         <div>
           <PokemonFilter />
-          <PokemonList
-            pokemons={pokemons}
-            filter={filter}
-            setSelectedPokemon={setSelectedPokemon}
-          />
+          <PokemonList />
         </div>
         <PokemonInfo />
      </div>
