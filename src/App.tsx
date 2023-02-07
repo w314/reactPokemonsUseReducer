@@ -49,9 +49,7 @@ function App() {
             setSelectedPokemon={setSelectedPokemon}
           />
         </div>
-        <PokemonInfo 
-          pokemon={selectedPokemon} 
-        />
+        <PokemonInfo />
      </div>
     </div>
     </PokemonContext.Provider>
