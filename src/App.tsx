@@ -3,32 +3,10 @@ import React from 'react'
 import './App.css'
 import pokemons from './pokemons.json'
 import { useState } from 'react'
-import { Pokemon } from './pokemonInterface'
+import Pokemon from './pokemonInterface'
 import PokemonRow from './components/PokemonRow'
+import PokemonInfo from './components/PokemonInfo'
 
-
-// SelectedPokemon component to display selected pokemon
-const SelectedPokemon:React.FunctionComponent<{
-  // use Record to type index and value in properties received
-  // otherwise base[key] will give error message that string cannot index base
-  name: Record<string, string>,
-  base: Record<string, number>
-  // use {} object destructuring when listing parameters
-  }> = ({name, base}) => (
-    <div>
-      <h3>{name.english}</h3>
-      <table>
-        <tbody>
-          {Object.keys(base).map(key => (
-            <tr key={key}>
-              <td>{key}</td>
-              <td>{base[key]}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-)
 
 function App() {
   // store the search string to filter the pokemon list
@@ -82,7 +60,7 @@ function App() {
         <div>
           <h2>Selected Pokemon</h2>
           {/* use ... spread operator to pass all properties of pokemon */}
-          {selectedPokemon && <SelectedPokemon {...selectedPokemon}/>}
+          {selectedPokemon && <PokemonInfo {...selectedPokemon}/>}
         </div>
       </div>
     </div>

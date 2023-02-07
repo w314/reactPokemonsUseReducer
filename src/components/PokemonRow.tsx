@@ -1,4 +1,4 @@
-import { Pokemon } from '../pokemonInterface'
+import Pokemon from '../pokemonInterface'
 
 // PokemonRow component to display rows in our pokemon table
 const PokemonRow:React.FunctionComponent<{

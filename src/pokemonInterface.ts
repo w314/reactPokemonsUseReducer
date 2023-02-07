@@ -1,4 +1,4 @@
- export interface Pokemon {
+ export default interface Pokemon {
   id: number,
   name: {
     english: string,
