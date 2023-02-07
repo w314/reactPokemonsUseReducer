@@ -6,7 +6,7 @@ import { useState } from 'react'
 import Pokemon from './pokemonInterface'
 import PokemonRow from './components/PokemonRow'
 import PokemonInfo from './components/PokemonInfo'
-
+import PokemonFilter from './components/PokemonFilter'
 
 function App() {
   // store the search string to filter the pokemon list
@@ -31,7 +31,7 @@ function App() {
         }}
       >
         <div>
-          <input type="text" value={filter} onChange={(event) => setFilter(event.target.value) }></input>
+          <PokemonFilter filter={filter} setFilter={setFilter}/>
           <table>
             <thead>
               <tr>
