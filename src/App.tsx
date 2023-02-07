@@ -10,6 +10,7 @@ import PokemonInfo from './components/PokemonInfo'
 import PokemonFilter from './components/PokemonFilter'
 import PokemonList from './components/PokemonList'
 
+import PokemonContext from './PokemonContext'
 
 function App() {
   // store the search string to filter the pokemon list
@@ -18,6 +19,13 @@ function App() {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null)
 
   return (
+    <PokemonContext.Provider 
+      value = {{
+        filter,
+        setFilter,
+        selectedPokemon,
+        setSelectedPokemon,
+    }}>
     <div
       // style provided as an object to style property
       style={{
@@ -34,10 +42,7 @@ function App() {
         }}
       >
         <div>
-          <PokemonFilter 
-            filter={filter}
-            setFilter={setFilter}
-          />
+          <PokemonFilter />
           <PokemonList
             pokemons={pokemons}
             filter={filter}
@@ -49,6 +54,7 @@ function App() {
         />
      </div>
     </div>
+    </PokemonContext.Provider>
   )
 }
 
