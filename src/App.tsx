@@ -43,13 +43,10 @@ function App() {
             setSelectedPokemon={setSelectedPokemon}
           />
         </div>
-        {/* <PokemonInfo {...selectedPokemon} /> */}
-        <div>
-          <h2>Selected Pokemon</h2>
-          {/* use ... spread operator to pass all properties of pokemon */}
-          {selectedPokemon && <PokemonInfo {...selectedPokemon}/>}
-        </div>
-      </div>
+        <PokemonInfo 
+          pokemon={selectedPokemon} 
+        />
+     </div>
     </div>
   )
 }
