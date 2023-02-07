@@ -1,4 +1,5 @@
 import React from 'react'
+// style imported from separate css file
 import './App.css'
 import pokemons from './pokemons.json'
 import { useState } from 'react'
@@ -24,6 +25,7 @@ const SelectedPokemon:React.FunctionComponent<{
   // otherwise base[key] will give error message that string cannot index base
   name: Record<string, string>,
   base: Record<string, number>
+  // use {} object destructuring when listing parameters
   }> = ({name, base}) => (
     <div>
       <h3>{name.english}</h3>
@@ -48,6 +50,7 @@ function App() {
 
   return (
     <div
+      // style provided as an object to style property
       style={{
         margin: "auto",
         width: 800
