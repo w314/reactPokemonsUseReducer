@@ -3,6 +3,8 @@ import { createContext } from 'react'
 import Pokemon from './pokemonInterface'
 
 type PokemonContextType = {
+  pokemons: Pokemon[] | null,
+  setPokemons: (pokemons: Pokemon[] | null) => void,
   filter: string,
   setFilter: (filter: string) => void,
   selectedPokemon: Pokemon | null,
@@ -10,6 +12,8 @@ type PokemonContextType = {
 }
 
 const PokemonContext = createContext<PokemonContextType>({
+  pokemons: [],
+  setPokemons: () => {},
   filter: '',
   setFilter: () => {},
   selectedPokemon: null,

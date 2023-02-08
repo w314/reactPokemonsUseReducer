@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // style imported from separate css file
 import './App.css'
 import { useState } from 'react'
@@ -12,14 +12,26 @@ import PokemonList from './components/PokemonList'
 import PokemonContext from './PokemonContext'
 
 function App() {
+  // store pokemons array
+  const [pokemons, setPokemons] = useState<Pokemon[] | null>(null)
   // store the search string to filter the pokemon list
   const [filter, setFilter] = useState('')
   // store selected pokemon
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null)
 
+
+  // use useEffect() to get pokemons when the component mounts
+  useEffect(() => {
+    fetch('http://localhost:5173/reactIntroTs/public/pokemons.json')
+    .then(response => response.json())
+    .then(data => setPokemons(data))
+  }, [])
+
   return (
     <PokemonContext.Provider 
       value = {{
+        pokemons,
+        setPokemons,
         filter,
         setFilter,
         selectedPokemon,

@@ -2,15 +2,15 @@ import React from 'react'
 import Pokemon from '../pokemonInterface'
 import PokemonRow from './PokemonRow'
 import { useContext } from 'react'
-import pokemons from '../pokemons.json'
 import PokemonContext from '../PokemonContext'
 
 
 const PokemonList: React.FunctionComponent = () => {
 
-  const { filter, setSelectedPokemon } = useContext(PokemonContext)
+  const { pokemons, filter, setSelectedPokemon } = useContext(PokemonContext)
 
   return (
+    pokemons ? 
     <table>
       <thead>
         <tr>
@@ -34,7 +34,8 @@ const PokemonList: React.FunctionComponent = () => {
             onSelect={(pokemon: Pokemon) => setSelectedPokemon(pokemon)}/> 
         )}
       </tbody>
-    </table>
+    </table> 
+    : null
   )
 }
 
