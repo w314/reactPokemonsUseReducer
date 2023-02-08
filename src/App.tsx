@@ -22,7 +22,7 @@ function App() {
 
   // use useEffect() to get pokemons when the component mounts
   useEffect(() => {
-    fetch('http://localhost:5173/reactIntroTs/public/pokemons.json')
+    fetch('./public/pokemons.json')
     .then(response => response.json())
     .then(data => setPokemons(data))
   }, [])
