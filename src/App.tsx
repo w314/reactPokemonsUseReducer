@@ -1,65 +1,38 @@
-import React, { useEffect } from 'react'
 // style imported from separate css file
 import './App.css'
-import { useState } from 'react'
-
-import Pokemon from './pokemonInterface'
-
 import PokemonInfo from './components/PokemonInfo'
 import PokemonFilter from './components/PokemonFilter'
 import PokemonList from './components/PokemonList'
+// import context provider
+import  PokemonProvider  from './PokemonContext'
 
-import PokemonContext from './PokemonContext'
 
 function App() {
-  // store pokemons array
-  const [pokemons, setPokemons] = useState<Pokemon[] | null>(null)
-  // store the search string to filter the pokemon list
-  const [filter, setFilter] = useState('')
-  // store selected pokemon
-  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null)
-
-
-  // use useEffect() to get pokemons when the component mounts
-  useEffect(() => {
-    fetch('./pokemons.json')
-    .then(response => response.json())
-    .then(data => setPokemons(data))
-  }, [])
-
   return (
-    <PokemonContext.Provider 
-      value = {{
-        pokemons,
-        setPokemons,
-        filter,
-        setFilter,
-        selectedPokemon,
-        setSelectedPokemon,
-    }}>
-    <div
-      // style provided as an object to style property
-      style={{
-        margin: "auto",
-        width: 800
-      }}
-    >
-      <h1 className="title">Pokemons</h1>
+    < PokemonProvider>
       <div
+        // style provided as an object to style property
         style={{
-          display: "grid",
-          gridTemplateColumns: "50% 50%",
-          gridGap: "2rem",
+          margin: "auto",
+          width: 800
         }}
       >
-        <div>
-          <PokemonFilter />
-          <PokemonList />
-        </div>
-        <PokemonInfo />
-     </div>
-    </div>
-    </PokemonContext.Provider>
+        <h1 className="title">Pokemons</h1>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "50% 50%",
+            gridGap: "2rem",
+          }}
+        >
+          <div>
+            <PokemonFilter />
+            <PokemonList />
+          </div>
+          <PokemonInfo />
+      </div>
+      </div>
+    </PokemonProvider> 
   )
 }
 

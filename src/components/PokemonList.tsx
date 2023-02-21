@@ -2,7 +2,7 @@ import React from 'react'
 import Pokemon from '../pokemonInterface'
 import PokemonRow from './PokemonRow'
 import { useContext } from 'react'
-import PokemonContext from '../PokemonContext'
+import { PokemonContext } from '../PokemonContext'
 
 
 const PokemonList: React.FunctionComponent = () => {

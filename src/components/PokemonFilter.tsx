@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import PokemonContext from '../PokemonContext'
+import { PokemonContext } from '../PokemonContext'
 
 
 const PokemonFilter: React.FunctionComponent = () => {

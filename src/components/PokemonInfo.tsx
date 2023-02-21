@@ -1,7 +1,7 @@
 import React from 'react'
 import Pokemon from '../pokemonInterface'
 import { useContext } from 'react'
-import PokemonContext from '../PokemonContext'
+import { PokemonContext } from '../PokemonContext'
 
 // PokemonInfo component to display selected pokemon
 const PokemonInfo:React.FunctionComponent = () => {
