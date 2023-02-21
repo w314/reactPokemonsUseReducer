@@ -7,10 +7,10 @@ import { PokemonContext } from '../PokemonContext'
 
 const PokemonList: React.FunctionComponent = () => {
 
-  const { pokemons, filter, setSelectedPokemon } = useContext(PokemonContext)
+  const { state, dispatch } = useContext(PokemonContext)
 
   return (
-    pokemons ? 
+    state.pokemons ? 
     <table>
       <thead>
         <tr>
@@ -19,19 +19,19 @@ const PokemonList: React.FunctionComponent = () => {
         </tr>
       </thead>
       <tbody>
-        {pokemons
+        {state.pokemons
         // only take the first 15 pokemons from the list
         .slice(0, 15)
         // let the user search the list
         // using toLowerCase() to make the search case insensitive (includes is case sensitive)
-        .filter(pokemon => pokemon.name.english.toLowerCase().includes(filter.toLowerCase())) 
+        .filter(pokemon => pokemon.name.english.toLowerCase().includes(state.filter.toLowerCase())) 
         // use map to display all the pokemons
         .map(pokemon =>
           // use PokemonRow component to display the current pokemon
           <PokemonRow 
             key={pokemon.id} 
             pokemon={pokemon} 
-            onSelect={(pokemon: Pokemon) => setSelectedPokemon(pokemon)}/> 
+            onSelect={(pokemon: Pokemon) => dispatch({type: 'setSelectedPokemon', payload: pokemon})}/> 
         )}
       </tbody>
     </table> 
