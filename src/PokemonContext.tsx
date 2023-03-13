@@ -42,7 +42,7 @@ export const PokemonContext = createContext<PokemonContextType>({
 const PokemonProvider = ({children}: {children: React.ReactNode}) => {
   // define state
 
-  const pokemonReducer = (state: StateType, action: ACTIONTYPE) => {
+  const pokemonReducer = (state: StateType, action: ACTIONTYPE):StateType => {
     switch(action.type) {
       case 'setPokemons':
         return {...state, pokemons: action.payload }
